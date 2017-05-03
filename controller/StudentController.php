@@ -9,6 +9,10 @@ function index()
 	));
 }
 
+function bla() {
+	echo 'bla';
+}
+
 function create()
 {
 	render("student/create");

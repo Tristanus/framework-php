@@ -1,0 +1,1 @@
+<p>dit mag wel, want je bent een admin</p>
