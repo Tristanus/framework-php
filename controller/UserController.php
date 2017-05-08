@@ -38,8 +38,5 @@ function loginProcess() {
 
 	$userid = GetUserId($username, $passwordhash);
 
-	$_SESSION['userid'] = $userid;
-	
-
 	header('location: /');
 }
