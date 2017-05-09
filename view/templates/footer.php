@@ -1,4 +1,4 @@
-
+</div>
 
 <div style="border:1px solid grey; padding: 5px;">
 <b>session debug:</b><br>

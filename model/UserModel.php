@@ -8,6 +8,19 @@ function IsAdminLoggedIn() {
 	}
 }
 
+function GetUserById($id) {
+	$db = openDatabaseConnection();
+
+	// find the user
+	$sql = "SELECT * FROM users WHERE id=:userid " ;
+	$query = $db->prepare($sql);
+	$query->execute(array(
+		":userid" => $id
+		));
+
+	return $query->fetch();
+}
+
 function GetUserId($username, $passwordhash) {
 
 	$db = openDatabaseConnection();

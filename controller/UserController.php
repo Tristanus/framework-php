@@ -1,9 +1,28 @@
 <?php
 
 require(ROOT . "model/UserModel.php");
+require(ROOT . "model/RoleModel.php");
 
 function login() {
 	render('user/login');
+}
+
+function edit($user_id) {
+	// get single user
+	$user = GetUserById($user_id);
+
+	// get roles for single user
+	$user_roles = GetRolesIdsForUserId($user_id);
+
+	// get all roles (id's and names)
+	$all_roles = GetAllRoles();
+
+	render('user/edit', array('all_roles' => $all_roles ));
+}
+
+function editSave($id) {
+	// save the POST to database
+	echo 'function editSave(' . $id . ')';
 }
 
 function logout() {
