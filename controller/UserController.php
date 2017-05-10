@@ -11,18 +11,20 @@ function edit($user_id) {
 	// get single user
 	$user = GetUserById($user_id);
 
-	// get roles for single user
-	$user_roles = GetRolesIdsForUserId($user_id);
+	// get roles for single user, including the checks 
+	$user_roles = GetAllRolesWithChecksForUserId($user_id);
 
-	// get all roles (id's and names)
-	$all_roles = GetAllRoles();
-
-	render('user/edit', array('all_roles' => $all_roles ));
+	render('user/edit', array(
+		'user' => $user,
+		'user_roles' => $user_roles
+	));
 }
 
 function editSave($id) {
 	// save the POST to database
-	echo 'function editSave(' . $id . ')';
+	$result = SyncRolesForUser($id);
+
+	header('location: /');
 }
 
 function logout() {
